@@ -1,3 +1,6 @@
+# with open('readme.txt', 'a') as f:
+#     f.write(name)
+
 def intro(name):
     print("  ___________________________________________ ")
     print("                Contact book                ")
@@ -7,5 +10,6 @@ def intro(name):
 
 name=input('To open a new contact book:')
 intro(name)
-with open('readme.txt', 'a') as f:
-    f.write(name)
+
+def orders():
+    print('Press 1 ')
