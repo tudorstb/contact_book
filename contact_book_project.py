@@ -92,13 +92,23 @@ while redo_name=='r' or redo_name=='R':
             redo_name=input('If you wish to add a new contact book pres (R) and the choose option "2":')
     elif do_contact_book=='2':
         name = input('New contact book name:')
-        with open(f'{name}.txt', 'w') as f:
-            f.write('')
-        print("For the new contact book to be avalable please re-run the project")
+        if os.path.exists(f"{name}.txt"):
+            print(f'There is allready a contact book called{name}')
+        else:
+            with open(f'{name}.txt', 'w') as f:
+                f.write('')
+            print("For the new contact book to be avalable please re-run the project")
         redo_name = input('If you wish to go back to the main menu press (R)')
     elif do_contact_book=='3':
-        delete_contact_book=input(f"Enter the name of the contact book you would wish to remove:")
-        os.remove(f"{delete_contact_book}.txt")
+        delete_retry='r'
+        while delete_retry=='r' or delete_retry=='R':
+            delete_contact_book=input(f"Enter the name of the contact book you would wish to remove:")
+            if os.path.exists(f"{delete_contact_book}.txt"):
+                os.remove(f"{delete_contact_book}.txt")
+                print("For the contact book to be deleted please re-run the project")
+            else:
+                print(f'There is no contact book called {delete_contact_book}')
+                delete_retry=input("If you wish to try another name press (R)")
         redo_name=input('If you wish to go back to the main menu press (R)')
     else:
         print("You did not select a valid option")
