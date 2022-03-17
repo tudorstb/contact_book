@@ -12,12 +12,27 @@ c = conn.cursor()
 #         last_name text,
 #         email text
 #     )""")
-many_customer=[
-                    ('wes','alan','bla'),
-                    ('x','y','z'),
-                    ('a','b','c') ]
+# many_customers=[('wes','alan','bla'),('x','y','z'),('a','b','c')]
 
-c.execute("INSERT INTO customers VALUES ('Marry','Brown','asdasd')")
+#elem by elem
+#c.execute("INSERT INTO customers VALUES ('Marry','Brown','asdasd')")
+
+#to all multiple
+# c.executemany("INSERT INTO customers VALUES (?,?,?)",many_customers)
+
+
+# query the database
+c.execute("SELECT * FROM customers")
+# c.fetchone()
+# c.fetchmany(3)
+
+print(c.fetchall())
+
+
+
+
+
+
 
 
 print("Command executaed succesfully...")
