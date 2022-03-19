@@ -45,6 +45,7 @@ while redo_name=='r' or redo_name=='R':
                     tel_nr=input('Number:')
                     with open(f'{name}.txt', 'a') as f:
                         f.write(f'{entry_first_name}-{entry_last_name}:{tel_nr}\n')
+                    print('For the new contact to be added to the contact list please re-run the program')
                     redo=input("If you wish to make another option press (R) key:")
                 elif do=='3':
                     print('{Please enter the credentials for the entry you want to delete->}')
@@ -77,7 +78,7 @@ while redo_name=='r' or redo_name=='R':
                 else:
                     print("You did not select a valid option")
                     redo=input("If you wish to make another option press (R) key:")
-            redo_name = input('If you wish to go back to the main menu press (R)')
+            redo_name = input('If you wish to go back to the main menu press (R):')
                     #delete search cntent if you wish to output on the txt file
                     # with open(f"{name}.txt", "r") as f:
                     #     lines = f.readlines()
@@ -106,6 +107,7 @@ while redo_name=='r' or redo_name=='R':
             if os.path.exists(f"{delete_contact_book}.txt"):
                 os.remove(f"{delete_contact_book}.txt")
                 print("For the contact book to be deleted please re-run the project")
+                delete_retry=input("If you wish to delete another contact book press (R)")
             else:
                 print(f'There is no contact book called {delete_contact_book}')
                 delete_retry=input("If you wish to try another name press (R)")
